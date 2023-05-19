@@ -1,0 +1,238 @@
+/* Igor Stefaniak */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url("../fonts/Chillax/css/chillax.css");
+
+:root {
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #161519;
+}
+
+* {
+  font-family: 'Chillax-Medium', 'Rubik', 'Noto Sans', 'Outfit', 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #d2d2d2;
+}
+
+._vanish {
+  visibility: hidden;
+  opacity: 0;
+}
+
+body {
+  background-color: var(--dark);
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  color: white;
+
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+}
+
+.form .multiple {
+  display: flex;
+}
+
+.login-card {
+  width: 75vw;
+  max-width: 650px;
+  background-color: #1d1c21;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.input-container {
+  position: relative;
+  height: auto;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background: #1d1c21;
+  margin: 10px;
+}
+
+.input-container::before {
+  position: relative;
+  content: "";
+  height: 14px;
+  width: 2px;
+  left: 55px;
+  border-radius: 0.5rem;
+  background: rgb(112, 112, 112);
+}
+
+.input-container .input-field {
+  position: relative;
+  max-height: 4.2rem;
+  height: 46px;
+  padding: 0.5rem 1.5rem;
+  padding-left: 63px !important;
+  border: 0.15rem solid rgb(119 119 119);
+  color: #d2d2d2;
+  outline: none;
+  border-radius: 3rem;
+  font-size: 20px;
+  font-weight: 400;
+  width: 100%;
+  background: transparent;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.input-container label {
+  position: absolute;
+  left: 22px;
+  top: 0px;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  color: #999999;
+  padding: 0 0.3rem;
+  user-select: none;
+  background-color: #1d1c21;
+  color: white;
+
+}
+
+.icon {
+  position: relative;
+  left: 24px;
+  color: #999999;
+  font-size: 20px;
+}
+
+.input-field.valid,
+.input-field:valid {
+  border-color: var(--success);
+}
+
+.input-field.invalid,
+.input-field:invalid:not(:placeholder-shown, .input-field[type="date"]) {
+  border-color: var(--danger);
+}
+
+.input-field[type="date"]:not(:in-range) {
+  border-color: var(--danger)
+}
+
+input {
+  color-scheme: dark;
+}
+
+.input-container select {
+  background: #1d1c21 !important;
+}
+
+.collapse {
+  width: 0;
+  display: flex;
+}
+
+.heading {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 2px 0 6px;
+  margin-left: 10px;
+  color: white;
+}
+
+.description {
+  margin-bottom: 20px;
+  margin-left: 10px;
+}
+h1::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  width: 224px;
+  border: 4px solid #1aa7ec;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-separator::after {
+  content: '';
+  position: absolute;
+  left:0;
+  right: 0;
+  z-index: 0;
+  height: 0;
+  border: 1px solid #ffffff36;
+  border-radius: 10px;
+  margin-left: auto;
+    margin-right: auto;
+}
+
+.text-separator {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: -webkit-fill-available;
+  transition: all .20s cubic-bezier(0.4, 0, 1, 1);
+  align-items: center;
+  margin: 15px 50px;
+}
+
+#password-error-list{
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+#password-error-list div{
+  text-decoration: overline 4px;
+  color: #b2b2b2;
+}
+
+.submit {
+  float: right;
+  padding: 0.5rem 1.5rem;
+  background: #00000041;
+  transition: border-color 0.3s ease;
+  border: 0.15rem solid rgb(68, 68, 68);
+  color: #d2d2d2;
+  border-radius: 3rem;
+  font-weight: 400;
+}

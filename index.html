@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Igor Stefaniak">
+    <meta name="copyright" content="Igor Stefaniak">
+    <meta name="theme-color" content="#">
+    <link rel="icon" href="http://example.com/favicon.png">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./styles/main-style.css">
+    <link rel="stylesheet" href="./styles/web-el-style.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="./scripts/main.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <div class="login-card">
+            <form class="form" action="./index.html" method="get" target="_blank">
+                <h1>Zarejestruj się <i style="color:white" class="bx bx-edit-alt"></i></h1>
+                <div class="heading">Dane dostępowe</div>
+                <div class="description">Adres email i hasło, którymi zalogujesz się do Panelu klienta. Na ten email
+                    będą również przychodziły informacje o usługach.</div>
+                <div class="input-container">
+                    <div class="collapse">
+                        <i class="icon bx bx-envelope"></i>
+                    </div>
+                    <input type="email" name="email" placeholder="nazwauzytkownika@domena.pl" class="input-field"
+                        id="email-input" required />
+                    <label for="email-input">Adres e-mail*</label>
+                </div>
+                <div class="input-container">
+                    <div class="collapse">
+                        <i class="icon bx bx-lock-alt"></i>
+                    </div>
+                    <input type="password" name="password" placeholder="••••••••" class="input-field"
+                        id="password-input" minlength="8" required />
+                    <label for="password-input">Hasło*</label>
+                </div>
+                <div id="password-error-list">
+                    <div id="lowercase">MAŁA LITERA</div>
+                    <div id="uppercase">WIELKA LITERA</div>
+                    <div id="numbers">LICZBY</div>
+                    <div id="special-character">ZNAK SPECJALNY</div>
+                    <div id="minimum">MIN. 8 ZNAKÓW</div>
+                </div>
+                <div class="input-container">
+                    <div class="collapse">
+                        <i class="icon bx bx-lock-alt"></i>
+                    </div>
+                    <input type="password" name="password-confirm" placeholder="••••••••" class="input-field"
+                        id="password-confirm-input" minlength="8" required />
+                    <label for="password-confirm-input">Potwierdź hasło*</label>
+                </div>
+                <div class="text-separator"></div>
+                <div class="heading">Dane osobowe</div>
+                <div class="description">Podaj dane osoby, na którą będą zarejestrowane usługi, wystawiona faktura i z
+                    którą będziemy się kontaktowali w razie potrzeby.</div>
+                <div class="multiple">
+                    <div class="input-container">
+                        <div class="collapse">
+                            <i class="icon bx bx-user"></i>
+                        </div>
+                        <input type="text" name="name" placeholder="Jan" class="input-field" id="user-name"
+                            pattern="^([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{1,})"
+                            required />
+                        <label for="user-name">Imię*</label>
+                    </div>
+                    <div class="input-container">
+                        <div class="collapse">
+                            <i class="icon bx bx-user"></i>
+                        </div>
+                        <input type="text" name="surname" placeholder="Kowalski" class="input-field" id="user-surname"
+                            pattern="^([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{1,}'?-?[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{1,}\s?([a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð]{1,})?)"
+                            required />
+                        <label for="user-surname">Nazwisko*</label>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="collapse">
+                        <i class="icon bx bx-cake"></i>
+                    </div>
+                    <input type="date" name="date" class="input-field" id="date-input"
+                        min="1900-01-01" max="2010-01-01" required />
+                    <label for="date-input">Data urodzenia</label>
+                </div>
+<!--                 <div class="input-container">
+
+                    <input type="radio" name="gender" class="input-field" id="female" checked required />
+                    <i class="icon bx bx-male-female"></i>
+                    <label for="female">Kobieta</label>
+                    <input type="radio" name="gender" class="input-field" id="male" required />
+                    <i class="icon bx bx-male male"></i>
+                    <label for="male">Mężczyzna</label>
+                </div> -->
+                <div class="input-container">
+                    <div class="collapse">
+                        <i class="icon bx bx-phone"></i>
+                    </div>
+                    <input type="tel" name="tel" class="input-field" id="tel-input" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                        maxlength="11" required placeholder="123-456-789" />
+                    <label for="tel-input">Numer telefonu</label>
+                </div>
+                <div class="multiple">
+                    <div class="input-container">
+                        <div class="collapse">
+                            <i class="icon bx bx-map"></i>
+                        </div>
+                        <input type="text" name="postal-code" class="input-field" id="postal-code-input"
+                            pattern="[0-9]{2}-[0-9]{3}" maxlength="6" placeholder="00-000" required />
+                        <label for="postal-code-input">Kod pocztowy</label>
+                    </div>
+                    <div class="input-container">
+                        <div class="collapse">
+                            <i class="icon bx bx-buildings"></i>
+                        </div>
+                        <input type="text" class="input-field" list="city" id="city-input" placeholder="Pacanów"
+                            name="city" required />
+                        <label for="city-input">Miejscowość</label>
+                        <datalist id="city"></datalist>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <div class="collapse">
+                        <i class="icon bx bx-home"></i>
+                    </div>
+                    <input type="text" class="input-field" id="adress-input" placeholder="ul. Wojska Polskiego 123"
+                        name="address" required />
+                    <label for="adress-input">Adres korespondencyjny</label>
+                </div>
+
+                <button type="submit" class="submit">Wyślij formularz</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+
+        const password = document.getElementById("password-input");
+
+        $("#password-confirm-input").keyup(confirmPassword);
+        $("#password-input").keyup(confirmPassword);
+
+        function confirmPassword() {
+
+            if (password.value == $("#password-confirm-input").val()) {
+                $("#password-confirm-input").addClass("valid")
+                $("#password-confirm-input").removeClass("invalid")
+                console.log("valid")
+            }
+            else {
+                $("#password-confirm-input").addClass("invalid")
+                $("#password-confirm-input").removeClass("valid")
+                console.log("invalid")
+            }
+
+            if (!$("#password-confirm-input").val()) {
+                $("#password-confirm-input").removeClass("valid")
+                $("#password-confirm-input").removeClass("invalid")
+            }
+        }
+
+        $("#password-input").keyup(validatePassword);
+
+        function validatePassword() {
+            const regex_pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            if (regex_pattern.test(password.value)) {
+                $("#password-input").addClass("valid")
+                $("#password-input").removeClass("invalid")
+
+            }
+            else {
+                $("#password-input").addClass("invalid")
+                $("#password-input").removeClass("valid")
+            }
+
+            if (!password.value) {
+                $("#password-input").removeClass("valid")
+                $("#password-input").removeClass("invalid")
+            }
+
+            if (password.value.length >= 8) {
+                $("#minimum").css("color"," var(--success)")
+            }
+            else{
+                $("#minimum").css("color"," var(--danger)")
+            }
+            if (password.value.search(/[a-z]/) >= 0) {
+                $("#lowercase").css("color"," var(--success)")
+            }
+            else{
+                $("#lowercase").css("color"," var(--danger)")
+            }
+            if (password.value.search(/[A-Z]/) >= 0) {
+                $("#uppercase").css("color"," var(--success)")
+            }
+            else{
+                $("#uppercase").css("color"," var(--danger)")
+            }
+            if (password.value.search(/[^A-Za-z0-9]/) >= 0) {
+                $("#special-character").css("color"," var(--success)")
+            }
+            else{
+                $("#special-character").css("color"," var(--danger)")
+            }
+            if (password.value.search(/[0-9]/) >= 0) {
+                $("#numbers").css("color"," var(--success)")
+            }
+            else{
+                $("#numbers").css("color"," var(--danger)")
+            }
+
+            if (password.value.length == 0) {
+                $("#password-error-list > div").css("color"," #b2b2b2");
+            }
+        }
+
+        const email = document.getElementById("email-input");
+
+        $("#email-input").keyup(validateEmail);
+
+        function validateEmail() {
+            const regex_pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+            if (regex_pattern.test(email.value)) {
+                $("#email-input").addClass("valid")
+                $("#email-input").removeClass("invalid")
+
+            }
+            else {
+                $("#email-input").addClass("invalid")
+                $("#email-input").removeClass("valid")
+            }
+
+            if (!email.value) {
+                $("#email-input").removeClass("valid")
+                $("#email-input").removeClass("invalid")
+            }
+        }
+
+        const tel = document.getElementById("tel-input");
+
+        $("#tel-input").keyup(addHyphen);
+
+        function addHyphen() {
+
+            let ele = tel;
+            ele = ele.value.split('-').join('');
+
+            let finalVal = ele.match(/.{1,3}/g).join('-');
+            tel.value = finalVal;
+        }
+
+        const pc = document.getElementById("postal-code-input");
+
+        $("#postal-code-input").keyup(addHyphenPostalCode);
+
+        function addHyphenPostalCode() {
+            let ele = pc;
+            ele = ele.value.split('-').join('');
+
+            let finalVal = ele.match(/^[0-9]{2}|.{1,3}/g).join('-');
+            pc.value = finalVal;
+            if (pc.value.match(/^[0-9]{2}-[0-9]{3}$/g)) {
+                $("#city").empty()
+                getCityName()
+            }
+        }
+
+        function getCityName() {
+            var url = "https://kodpocztowy.intami.pl/api/" + pc.value;
+            $.getJSON(url, function (r) {
+                Object.entries(r).forEach(([key, value]) => {
+                    $("#city").append("<option>" + value.miejscowosc + " " + (typeof value.ulica === "undefined" ? "" : value.ulica) + "</option>");
+                });
+            });
+        }
+    </script>
+
+</body>
+
+</html>
